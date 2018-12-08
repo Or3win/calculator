@@ -35,9 +35,7 @@ jacocoTestCoverageVerification {
 	}
 }
 
-springBoot {
-    executable = true
-}
+bootJar {}
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
