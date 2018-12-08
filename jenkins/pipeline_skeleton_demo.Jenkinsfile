@@ -1,6 +1,9 @@
 pipeline 
 {     
     agent any
+    triggers{
+        pollSCM('H/15 * * * *')
+    }
     parameters {
         string(name:'track', defaultValue: '1', description:'Server track used for pipeline')
     }
