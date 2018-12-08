@@ -23,7 +23,7 @@ pipeline
                 
                 echo '3.2.Build jenkins'
                 sh "chmod +x gradlew"                    
-                sh "./gradlew compileJava"
+                sh "./gradlew clean build"
 
                 echo '3.4.Wait for Unit test env'
 
@@ -36,10 +36,11 @@ pipeline
                     reportDir: 'build/reports/jacoco/test/html',               
                     reportFiles: 'index.html',               
                     reportName: "JaCoCo Report"          
-                ])          
+                    ])          
                 sh "./gradlew jacocoTestCoverageVerification"   
                         
                 echo '01.3.6.Artifactory'
+                sh "curl -u'admin':'kvmechelen' -T 'build/libs/calculator-0.0.1-SNAPSHOT.jar' 'http://172.17.0.3:8081/artifactory/example-repo-local/calculator.jar'"
                 echo '01.3.7.Data Dictionary'
             }
         }
