@@ -41,7 +41,9 @@ jar {
 }
 
 bootJar {
-       executable = true
+    launchScript {
+        included = true
+    }
 }
 
 dependencies {
