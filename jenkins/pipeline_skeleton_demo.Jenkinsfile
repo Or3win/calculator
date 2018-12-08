@@ -49,8 +49,8 @@ pipeline
             parallel {
                stage('Application Server') {
                     steps {
-                        echo "sh 'ansible-playbook playbook_app.yml -i inventory/build'"
                         echo "inventory/build-${params.track}"
+                        sh "ssh root@192.168.15.6 'ansible-playbook /etc/ansible/appserver.yml'"
                     }
                 }
                 stage('Database Server') {
