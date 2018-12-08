@@ -35,15 +35,8 @@ jacocoTestCoverageVerification {
 	}
 }
 
-jar {
-	baseName = 'calculator'
-	version = '0.0.1-SNAPSHOT'
-}
-
-bootJar {
-    launchScript {
-        included = true
-    }
+springBoot {
+    executable = true
 }
 
 dependencies {
